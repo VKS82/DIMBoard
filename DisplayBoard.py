@@ -22,6 +22,7 @@ print(DIM_board.id)
 print(DIM_board.all_lists())
 
 for team in DIM_board.all_lists():
+    print(team.name)
     print(team.list_cards())
 
 
