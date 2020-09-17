@@ -1,6 +1,10 @@
 import config
 from trello import TrelloClient
+from LoadJSON import LoadJSON
 
+DIM_params = LoadJSON()
+
+search_id = DIM_params['id']
 
 
 client = TrelloClient(api_key=config.TRELLO_API_KEY,
@@ -9,4 +13,11 @@ client = TrelloClient(api_key=config.TRELLO_API_KEY,
 
 all_boards = client.list_boards()
 
-print(all_boards)
+for i in all_boards:
+    if i.id == search_id:
+        DIM_board = i
+        break
+
+print(DIM_board.id)
+
+
