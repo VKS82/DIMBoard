@@ -19,5 +19,9 @@ for i in all_boards:
         break
 
 print(DIM_board.id)
+print(DIM_board.all_lists())
+
+for team in DIM_board.all_lists():
+    print(team.list_cards())
 
 
