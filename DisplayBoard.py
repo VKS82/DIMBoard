@@ -1,6 +1,7 @@
 import config
 from trello import TrelloClient
 from LoadJSON import LoadJSON
+from DraftPicks import draft_picks
 
 DIM_params = LoadJSON()
 
@@ -21,8 +22,11 @@ for i in all_boards:
 print(DIM_board.id)
 print(DIM_board.all_lists())
 
-for team in DIM_board.all_lists():
-    print(team.name)
-    print(team.list_cards())
+year = '2022'
 
+for team in DIM_board.all_lists():
+    for pick in draft_picks:
+        card_name = pick+' '+year+' '+team.name
+        if '_' in card_name:
+            team.add_card(name=card_name)
 
