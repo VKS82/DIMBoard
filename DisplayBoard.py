@@ -22,7 +22,7 @@ for i in all_boards:
 print(DIM_board.id)
 print(DIM_board.all_lists())
 
-year = '2022'
+year = '2023'
 
 for team in DIM_board.all_lists():
     for pick in draft_picks:
